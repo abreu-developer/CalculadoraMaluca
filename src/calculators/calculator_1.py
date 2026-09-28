@@ -1,8 +1,8 @@
-from flask import Request as FlaskRequest
+from flask import request as FlaskRequest
 
 
 class Calculator1:
-    def calculate(self, request: FlaskRequest):
+    def calculate(self, request: FlaskRequest): # pyright: ignore[reportInvalidTypeForm]
         body = request.json
         input_data = self.__validate_body(body)
         splited_number = input_data / 3

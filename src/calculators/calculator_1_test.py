@@ -1,5 +1,6 @@
+import pytest
+
 from src.calculators.calculator_1 import Calculator1
-from pytest import ExceptionInfo, raises
 
 
 class MockRequest:
@@ -29,7 +30,7 @@ def test_calculate_with_body_error():
     calculator_1 = Calculator1()
     
     #error testing
-    with raises(Exception) as excinfo: 
+    with pytest.raises(Exception) as excinfo: 
         calculator_1.calculate(mock_request)
     
     assert str(excinfo.value) == 'body mal formatado!'
