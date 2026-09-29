@@ -1,9 +1,10 @@
 from flask import request as FlaskRequest
 
 from src.drivers.interfaces import driver_handler_interface
+from src.errors.http_unprocessable_entity_error import HttpUnprocessableEntityError
 
 
-class Calculator_2: 
+class Calculator2: 
     
     def __init__(self, driver_handler: driver_handler_interface):
         self.__driver_handler = driver_handler
@@ -18,7 +19,7 @@ class Calculator_2:
         
     def __validate_body(self, body: dict) -> list[float]:
         if "numbers" not in body:
-            raise Exception("body mal formatado")
+            raise HttpUnprocessableEntityError("body mal formatado")
         
         input_data = body["numbers"]
         return input_data
