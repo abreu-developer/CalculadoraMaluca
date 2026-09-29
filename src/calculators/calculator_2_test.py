@@ -13,6 +13,9 @@ class MockDriverHandler(DriveHandlerInterface):
     def standard_derivation(self, numbers: list[float]) -> float:
         return 3
     
+    def variance(self, numbers: list[float]) -> float:
+        pass
+    
     
 # integraçao entre nump e a calc_2
 def test_calculate_integration():
